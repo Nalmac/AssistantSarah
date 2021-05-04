@@ -1,4 +1,4 @@
-from Controllers import constants
+import constants
 from Controllers.ApplicationController import ApplicationController
 from Controllers.CalendarController import CalendarController
 from Controllers.InternetResearchController import InternetResearchController
