@@ -3,6 +3,7 @@ from Controllers.ApplicationController import ApplicationController
 from Controllers.CalendarController import CalendarController
 from Controllers.InternetResearchController import InternetResearchController
 from Controllers.LightController import LightController
+from Controllers.WeatherController import WeatherController
 
 class CommandController():
     def __init__(self, assistant, service):
@@ -12,6 +13,7 @@ class CommandController():
         self.internetResearchController = InternetResearchController(assistant, constants)
         self.lightController = LightController(constants)
         self.calendarController = CalendarController(constants, service, assistant)
+        self.weatherController = WeatherController(assistant)
     
     def handleCommand(self, cmd):
         for x in self.constants.SKILLS:
