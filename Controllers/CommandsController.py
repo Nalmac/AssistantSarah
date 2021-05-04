@@ -1,11 +1,17 @@
+from Controllers import constants
+from Controllers.ApplicationController import ApplicationController
+from Controllers.CalendarController import CalendarController
+from Controllers.InternetResearchController import InternetResearchController
+from Controllers.LightController import LightController
+
 class CommandController():
-    def __init__(self, constants, assistant, applicationController, internetResearchController, lightController, calendarController):
+    def __init__(self, assistant, service):
         self.constants = constants
         self.assistant = assistant
-        self.applicationController = applicationController
-        self.internetResearchController = internetResearchController
-        self.lightController = lightController
-        self.calendarController = calendarController
+        self.applicationController = ApplicationController(assistant, constants)
+        self.internetResearchController = InternetResearchController(assistant, constants)
+        self.lightController = LightController(constants)
+        self.calendarController = CalendarController(constants, service, assistant)
     
     def handleCommand(self, cmd):
         for x in self.constants.SKILLS:

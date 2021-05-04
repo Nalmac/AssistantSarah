@@ -3,11 +3,12 @@ import speech_recognition as sr
 from urllib.request import urlopen
 from random import randint
 from datetime import datetime
+from Controllers import constants
 
 
 class Assistant():
     
-    def __init__(self, constants):
+    def __init__(self):
         self.voix = pyttsx3.init()
         rate = self.voix.getProperty("rate")
         self.voix.setProperty("rate", rate-25)
