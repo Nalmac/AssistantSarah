@@ -13,7 +13,7 @@ from random import randint
 SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
 
 
-def authenticate_calendar():
+def authenticate_google():
     creds = None
     if os.path.exists('Auth/token.json'):
         creds = Credentials.from_authorized_user_file('Auth/token.json', SCOPES)
@@ -31,7 +31,7 @@ def authenticate_calendar():
     return build('calendar', 'v3', credentials=creds)
 
 def main():
-    service = authenticate_calendar()
+    service = authenticate_google()
     assistant = Assistant()
     commandController = CommandController(assistant, service=service)
     assistant.speak("Bonjour Monsieur. En quoi puis-je vous aider ?")

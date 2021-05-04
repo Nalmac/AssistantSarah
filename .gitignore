@@ -2,3 +2,4 @@ Auth/credentials.json
 Auth/token.json
 Controllers/constants.py
 __pycache__/
+venv/
