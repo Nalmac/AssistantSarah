@@ -12,7 +12,6 @@ class LanguageProcessor():
         self.trainer = Trainer()
         if os.path.isfile("./Language/model_trained.h5"):
             self.model = load_model("./Language/model_trained.h5")
-            self.trainer.processData()
         else:
             self.model = self.trainer.trainModel()
     

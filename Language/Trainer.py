@@ -4,20 +4,37 @@ import numpy as np
 from keras.optimizers import SGD
 import random
 import json
+import os
 from Models.Brain import createModel
 
 class Trainer():
     def __init__(self):
         self.stemmer = LancasterStemmer()
-        self.words = []
-        self.classes = []
+        self.words = json.load(open("./Language/words.json")) if os.path.isfile("./Language/words.json") else []
+        self.classes = json.load(open("./Language/classes.json")) if os.path.isfile("./Language/classes.json") else []
 
     def processData(self):
         with open("./Language/intents.json") as file:
             data = json.load(file)
 
-        documents = []
+        documents = self.firstProcessing(data, [])
 
+        out_empty = [0] * len(self.classes)
+
+        training = self.secondProcessing(documents, out_empty, [])
+
+        random.shuffle(training)
+        training = np.array(training)
+
+        train_x = list(training[:,0])
+        train_y = list(training[:,1])
+
+        json.dump(self.words, open("./Language/words.json","w"))
+        json.dump(self.classes, open("./Language/classes.json","w"))
+ 
+        return train_x, train_y
+
+    def firstProcessing(self, data, documents):
         for intent in data["intents"]:
             for pattern in intent["patterns"]:
                 wrds = nltk.word_tokenize(pattern)
@@ -30,11 +47,9 @@ class Trainer():
             self.words = sorted(list(set(self.words)))
 
             self.classes = sorted(list(set(self.classes)))
+        return documents
 
-            training = []
-
-            out_empty = [0] * len(self.classes)
-
+    def secondProcessing(self, documents, out_empty, training):
         for doc in documents:
             bag = []
             pattern_words = doc[0]
@@ -49,14 +64,7 @@ class Trainer():
             output_row[self.classes.index(doc[1])] = 1
 
             training.append([bag, output_row])
-
-        random.shuffle(training)
-        training = np.array(training)
-
-        train_x = list(training[:,0])
-        train_y = list(training[:,1])
-
-        return train_x, train_y
+        return training
 
     def trainModel(self):
         processed_data = self.processData()
