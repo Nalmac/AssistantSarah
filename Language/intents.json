@@ -14,9 +14,9 @@
         "responses" : ["tout le plaisir est pour moi", "de rien"]
     },
     {
-        "tag" : "présente-toi",
+        "tag" : "presente-toi",
         "patterns" : ["qui es-tu ?", "quel est ton nom"],
-        "responses" : ["Je suis votre assistant personnel, Sarah"]
+        "responses" : ["Je suis votre assistant personnel, Sarah", "Je m'appelle Sarah et je suis votre assistant personnel"]
     },
     {
         "tag" : "mood",
@@ -39,7 +39,7 @@
         "responses" : []
     },
     {
-        "tag" : "lumière",
+        "tag" : "lumiere",
         "patterns" : ["allume", "éteins", "allume la lumière", "éteins la lumière"],
         "responses" : []
     },

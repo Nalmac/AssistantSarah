@@ -37,4 +37,5 @@ class LanguageProcessor():
         results = self.model.predict([input_data])[0]
         results = [[i,r] for i,r in enumerate(results) if r>ERROR_THRESHOLD]
         results.sort(key=lambda x: x[1], reverse=True)
-        return [(self.trainer.classes[r[0]], str(r[1])) for r in results]
+        text, prob = [(self.trainer.classes[r[0]], str(r[1])) for r in results][0]
+        return text
