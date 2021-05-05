@@ -17,7 +17,6 @@ class Assistant():
         self.ear.energy_threshold = 4000
         self.misunderstood = "Désolé, je n'ai pas compris."
         self.actif = True
-        self.constants = constants
     
     def speak(self, sortie):
         if sortie is not None:
@@ -70,9 +69,9 @@ class Assistant():
                 print(vocal)
             except:
                 pass
-            for i in self.constants.CALL_WORDS:
-                if i in vocal.lower():
-                    self.speak(self.constants.LINES[randint(0, 4)])
+            for i in constants.CALL_WORDS:
+                if i == vocal.lower():
+                    self.speak(constants.BACK_LINES[randint(0, 4)])
                     self.actif = True
 
 

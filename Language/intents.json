@@ -1,0 +1,62 @@
+{"intents": [
+    {"tag": "bonjour",
+     "patterns": ["Salut", "Bonjour", "Yo", "Hey", "Bonsoir"],
+     "responses": ["Bonjour monsieur", "Bienvenue monsieur, que puis-je pour vous ?", "Bonjour monsieur, que puis-je faire pour vous aider"],
+     "context_set": ""
+    },
+    {"tag": "au revoir",
+     "patterns": ["A plus", "Arrête toi", "Au revoir"],
+     "responses": ["Au revoir monsieur", "Bonne journée"]
+    },
+    {
+        "tag" : "merci",
+        "patterns": ["merci bien", "merci"],
+        "responses" : ["tout le plaisir est pour moi", "de rien"]
+    },
+    {
+        "tag" : "présente-toi",
+        "patterns" : ["qui es-tu ?", "quel est ton nom"],
+        "responses" : ["Je suis votre assistant personnel, Sarah"]
+    },
+    {
+        "tag" : "mood",
+        "patterns" : ["ça va ? ", "comment ça va ?", "comment vas-tu"],
+        "responses" : ["Je vais bien monsieur", "je suis toujours dans la meilleure des formes"]
+    },
+    {
+        "tag" : "ouvrir",
+        "patterns" : ["ouvre", "lance", "ouvrir", "lancer"],
+        "responses" : []
+    },
+    {
+        "tag" : "fermer",
+        "patterns" : ["laisse-moi", "ferme-toi", "arrête-toi"],
+        "responses" : []
+    },
+    {
+        "tag" : "heure",
+        "patterns" : ["quelle heure est-il ?", "il est quelle heure ?"],
+        "responses" : []
+    },
+    {
+        "tag" : "lumière",
+        "patterns" : ["allume", "éteins", "allume la lumière", "éteins la lumière"],
+        "responses" : []
+    },
+    {
+        "tag" : "lire agenda",
+        "patterns" : ["Quel est le programme", "qu'est-ce que j'ai de prévu"],
+        "responses" : []
+    },
+    {
+        "tag" : "meteo",
+        "patterns" : ["Quel temps fait-il ?", "est-ce qu'il fait beau ?", "est-ce qu'il pleut ?"],
+        "responses" : []
+    },
+    {
+        "tag" : "chercher",
+        "patterns" : ["regarde sur youtube", "recherche sur youtube", "recherche sur internet", "recherche sur wikipedia", "cherche"],
+        "responses" : []
+    }
+]
+}
