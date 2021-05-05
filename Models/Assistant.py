@@ -1,9 +1,10 @@
+import constants
 import pyttsx3
 import speech_recognition as sr
 from urllib.request import urlopen
 from random import randint
 from datetime import datetime
-from Controllers import constants
+
 
 
 class Assistant():

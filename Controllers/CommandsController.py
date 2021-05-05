@@ -37,4 +37,5 @@ class CommandController():
             self.lightController.process(cmd)
         elif x == "lire agenda":
             self.calendarController.handleCommand(cmd)
-                    
+        elif x == "meteo":
+            self.weatherController.handleCommand(cmd)                    

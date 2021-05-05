@@ -1,6 +1,6 @@
 import datetime
 import pytz
-from Controllers import constants
+import constants
 
 class TextDate():
     def __init__(self, text):
@@ -59,3 +59,14 @@ class TextDate():
             if "prochain" in text:
                 dif += 7
         return today + datetime.timedelta(dif)
+
+def dateToText(date):
+    day = date.day
+    month = constants.MONTHS[date.month - 1]
+    dayText = "premier" if day == 1 else str(day)
+    return str(day) + " " + month
+
+def dateFromDelta(delta):
+    today = datetime.date.today()
+    delta = datetime.timedelta(days=delta)
+    return today + delta
